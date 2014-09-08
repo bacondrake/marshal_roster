@@ -1,0 +1,37 @@
+<h1>Edit exam</h1>
+
+<%= form_for @exam do |f| %>
+  <% if @exam.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@exam.errors.count, "error") %> prohibited this exam from being saved:</h2>
+    <ul>
+    <% @exam.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p class="form-group">
+    <%= f.label :date %><br />
+    <%= f.date_field :date %>
+  </p>
+
+  <p>
+    <%= hidden_field_tag("exam[ntcmarshal_ids][]", nil) %>
+    <% @ntcmarshals.each do |ntcmarshal| %>
+      <div>
+        <%= check_box_tag "exam[ntcmarshal_ids][]", ntcmarshal.id, @exam.ntcmarshals.include?(ntcmarshal) %>
+        <%= ntcmarshal.name %>
+      </div>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  </p>
+
+<% end %>
+
+<% link_to 'Back', exams_path %>
+
+

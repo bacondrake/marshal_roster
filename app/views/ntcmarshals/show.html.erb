@@ -1,0 +1,21 @@
+<div class="container">
+  <br />
+  <p>
+    <strong>Name:</strong>
+    <%= @ntcmarshal.name %>
+  </p>
+
+  <!-- This is to display what marshals are allocated to what exams -->
+  <p>
+    <strong>Exam scheduled:</strong>
+  </p>
+
+  <p>
+    <% @ntcmarshal.exams.each do |exam| %>
+      <%= exam.date %> <br />
+    <% end %>
+  </p>
+  <!-- End of marshal exam allocation display -->
+
+  <%= link_to 'Edit', edit_ntcmarshal_path %> | <%= link_to 'Back', ntcmarshals_path %>
+</div>

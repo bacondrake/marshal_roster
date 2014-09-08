@@ -1,0 +1,26 @@
+<h1>Exams <%= link_to 'New exam', new_exam_path, class: "btn btn-primary" %> </h1>
+<table class="table table-striped">
+  <% @exams.each do |exam| %>
+    <% if exam.date < Date.new %>
+      <tr class="disabled" %>
+    <% else %>
+      <tr>
+        <td><%= link_to exam.date, exam_path(exam) %></td>
+        <td>
+          <% if exam.ntcmarshals.count > 4 || exam.date < Date.today %>
+            <i class="fa fa-check"></i>
+          <% elsif exam.ntcmarshals.count > 0 %>
+            <span class="label label-primary"><%= exam.ntcmarshals.count %></span>
+          <% end %>
+        </td>
+        <td><%= link_to 'Edit', edit_exam_path(exam) %></td>
+        <td>
+          <% if exam.date > Date.today %>
+            <%= link_to 'Delete', exam_path(exam), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+<br />
+<%= will_paginate @exams, renderer: BootstrapPagination::Rails %>

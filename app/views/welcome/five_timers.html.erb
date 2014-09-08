@@ -1,0 +1,9 @@
+<h1>Five Timers</h1>
+<% @marshals.each do |marshal| %>
+  <% if marshal.exams.count > 4 %>
+  <p>
+    <span class="label label-success"><%= marshal.exams.count %></span> 
+    <%= link_to marshal.name, controller: 'ntcmarshals', action: :show, id: marshal.id %> 
+  </p>
+  <% end %>
+<% end %>

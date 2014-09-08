@@ -1,0 +1,33 @@
+<h1>Marshals <%= link_to 'New marshal', new_ntcmarshal_path, class: "btn btn-primary" %> </h1>
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Exams marshalled</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @ntcmarshals.each do |marshal| %>
+    <tr>
+      <td><%= link_to marshal.name, ntcmarshal_path(marshal) %></td>
+      <td>
+        <% if marshal.exams.count > 4 %>
+          <span class="label label-success">
+            <%= marshal.exams.count %>
+          </span>
+        <% elsif marshal.exams.count == 0 %>
+          <span class="label label-default">
+            <%= marshal.exams.count %>
+          </span>
+        <% else %>
+          <span class="label label-info">
+            <%= marshal.exams.count %>
+          </span>
+        <% end %>
+      </td>
+      <td><%= link_to 'Edit', edit_ntcmarshal_path(marshal) %></td>
+      <td><%= link_to 'Delete', ntcmarshal_path(marshal), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<br />
+<%= will_paginate @exams, renderer: BootstrapPagination::Rails %>
