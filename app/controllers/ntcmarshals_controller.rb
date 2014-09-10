@@ -1,4 +1,5 @@
 class NtcmarshalsController < ApplicationController
+  before_action :set_marshal, only: [:show, :edit, :update, :destroy]
 
   def new
     @ntcmarshal = Ntcmarshal.new
@@ -18,18 +19,15 @@ class NtcmarshalsController < ApplicationController
   end
 
   def show
-    @ntcmarshal = Ntcmarshal.find(params[:id])
     @exams = Exam.all
   end
 
   def edit
     @exams = Exam.all
-    @ntcmarshal = Ntcmarshal.find(params[:id])
   end
 
   def update
     params[:ntcmarshal][:exam_ids] ||= []
-    @ntcmarshal = Ntcmarshal.find(params[:id])
 
     if @ntcmarshal.update_attributes(ntcmarshal_params)
       redirect_to ntcmarshals_path
@@ -39,7 +37,6 @@ class NtcmarshalsController < ApplicationController
   end
 
   def destroy
-    @ntcmarshal = Ntcmarshal.find(params[:id])
     @ntcmarshal.destroy
 
     redirect_to ntcmarshals_path
@@ -51,5 +48,9 @@ class NtcmarshalsController < ApplicationController
         :name,
         {:exam_ids => []}
       )
+    end
+
+    def set_marshal
+      @ntcmarshal = Ntcmarshal.find(params[:id])
     end
 end

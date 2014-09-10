@@ -1,18 +1,23 @@
+<br />
 <p>
   <strong>Date:</strong>
   <%= @exam.date %>
 </p>
 
-<!-- This is to display what exams are allocated to what marshals -->
 <p>
   <strong>Marshals scheduled:</strong>
 </p>
 
 <p>
   <% @exam.ntcmarshals.each do |ntcmarshal| %>
-    <%= ntcmarshal.name %> <br />
+    <% if ntcmarshal.exams.count > 4 %>
+      <span class="label label-success">
+    <% else %>
+      <span class="label label-primary">
+    <% end %>
+      <%= ntcmarshal.exams.count %>
+    </span> &nbsp; <%= link_to ntcmarshal.name, controller: 'ntcmarshals', action: :show, id: ntcmarshal.id %> <br />
   <% end %>
 </p>
 
-<!-- End of marshal exam allocation display -->
 <%= link_to 'Edit', edit_exam_path %> | <%= link_to 'Back', exams_path %>
