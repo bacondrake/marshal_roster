@@ -11,7 +11,7 @@
   </p>
 
   <p>
-    <% @ntcmarshal.exams.each do |exam| %>
+    <% @ntcmarshal.exams.sort { |a, b| b.date <=> a.date }.each do |exam| %>
       <%= exam.date %> <br />
     <% end %>
   </p>

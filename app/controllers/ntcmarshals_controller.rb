@@ -1,5 +1,6 @@
 class NtcmarshalsController < ApplicationController
   before_action :set_marshal, only: [:show, :edit, :update, :destroy]
+  before_action :set_exams,   only: [:show, :edit]
 
   def new
     @ntcmarshal = Ntcmarshal.new
@@ -19,11 +20,9 @@ class NtcmarshalsController < ApplicationController
   end
 
   def show
-    @exams = Exam.all
   end
 
   def edit
-    @exams = Exam.all
   end
 
   def update
@@ -52,5 +51,9 @@ class NtcmarshalsController < ApplicationController
 
     def set_marshal
       @ntcmarshal = Ntcmarshal.find(params[:id])
+    end
+
+    def set_exams
+      @exams = Exam.order("date desc")
     end
 end

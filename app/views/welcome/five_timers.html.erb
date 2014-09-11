@@ -1,5 +1,5 @@
 <h1>Five Timers</h1>
-<% @marshals.each do |marshal| %>
+<% @marshals.sort { |a, b| b.exams.count <=> a.exams.count }.each do |marshal| %>
   <% if marshal.exams.count > 4 %>
   <p>
     <span class="label label-success"><%= marshal.exams.count %></span> 

@@ -15,5 +15,6 @@ gem 'will_paginate-bootstrap'
 
 group :development, :test do
   gem 'capistrano' # cap production deploy:migrations => puts dev database into prod
+  gem 'hirb'
   gem 'rspec-rails'
 end
