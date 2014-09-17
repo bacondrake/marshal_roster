@@ -1,5 +1,6 @@
 class ExamsController < ApplicationController
-  
+  before_action :set_exam, only: [:show, :edit, :update, :destroy]
+
   def new
     @exam = Exam.new
   end
@@ -18,29 +19,26 @@ class ExamsController < ApplicationController
   end
 
   def show
-    @exam = Exam.find(params[:id])
     @marshals = Ntcmarshal.all
+    @exam_complete = @exam.date > Date.new
   end
 
   def edit
-    @exam = Exam.find(params[:id])
     @ntcmarshals = Ntcmarshal.all
     @ntcmarshals.order!('name asc')
   end
 
   def update
     params[:exam][:ntcmarshal_ids] ||= []
-    @exam = Exam.find(params[:id])
 
     if @exam.update_attributes(exam_params)
-      redirect_to exams_path
+      redirect_to exam_path
     else
       render 'edit'
     end
   end
 
   def destroy
-    @exam = Exam.find(params[:id])
     @exam.destroy
 
     redirect_to exams_path
@@ -52,5 +50,9 @@ class ExamsController < ApplicationController
         :date,
         {:ntcmarshal_ids => []}
       )
+    end
+
+    def set_exam
+      @exam = Exam.find(params[:id])
     end
 end

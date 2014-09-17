@@ -1,23 +1,41 @@
 <br />
-<p>
-  <strong>Date:</strong>
-  <%= @exam.date %>
-</p>
+<h3>
+  <%= @exam.date.strftime("%B %d, %Y") %>
+</h3>
+<% if @exam.ntcmarshals.count < 5 %>
+  <% remaining = (5 - @exam.ntcmarshals.count) %>
+  <p class="label label-danger"><%= pluralize(remaining, "marshal") %> to be scheduled</p>
+<% elsif @exam_complete %>
+  <p class="label label-success">Exam is complete</p>
+<% end %>
 
-<p>
-  <strong>Marshals scheduled:</strong>
-</p>
+<% if @exam.ntcmarshals.count > 0 %>
+  <div class="row">
+    <div class="col-md-4">
+      <br />
+      <table class="table table-striped">
+        <tr>
+          <th>Marshals scheduled</th>
+        </tr>
+        <% @exam.ntcmarshals.each do |ntcmarshal| %>
+        <tr>
+          <td>
+            <% if ntcmarshal.exams.count > 4 %>
+              <span class="label label-success">
+            <% else %>
+              <span class="label label-primary">
+            <% end %>
+              <%= ntcmarshal.exams.count %>
+            </span> &nbsp; <%= link_to ntcmarshal.name, controller: 'ntcmarshals', action: :show, id: ntcmarshal.id %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <%= link_to 'Edit', edit_exam_path %> | <%= link_to 'Back', exams_path %>  
+<% else %>
+  <p> </p>
+  <p><%= link_to 'Add marshals', edit_exam_path, class: 'btn btn-success' %></p>
+<% end %>
 
-<p>
-  <% @exam.ntcmarshals.each do |ntcmarshal| %>
-    <% if ntcmarshal.exams.count > 4 %>
-      <span class="label label-success">
-    <% else %>
-      <span class="label label-primary">
-    <% end %>
-      <%= ntcmarshal.exams.count %>
-    </span> &nbsp; <%= link_to ntcmarshal.name, controller: 'ntcmarshals', action: :show, id: ntcmarshal.id %> <br />
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_exam_path %> | <%= link_to 'Back', exams_path %>

@@ -45,6 +45,9 @@ class NtcmarshalsController < ApplicationController
     def ntcmarshal_params
       params.require(:ntcmarshal).permit(
         :name,
+        :address,
+        :phone,
+        :email,
         {:exam_ids => []}
       )
     end

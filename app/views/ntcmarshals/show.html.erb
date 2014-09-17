@@ -1,19 +1,45 @@
 <div class="container">
   <br />
-  <p>
-    <strong>Name:</strong>
-    <%= @ntcmarshal.name %>
-  </p>
+  <h3><%= @ntcmarshal.name %></h3>
+  <div class="row">
+    <div class="col-md-9">
+      <table class="table table-striped">
+        <tr>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Email</th>
+        </tr>
+        <tr>
+          <% if ( !@ntcmarshal.address && !@ntcmarshal.phone && !@ntcmarshal.email ) || ( @ntcmarshal.address.blank? && @ntcmarshal.phone.blank? && @ntcmarshal.email.blank? ) %>
+            <td colspan=3>No information provided</td>
+          <% else %>
+            <td><%= @ntcmarshal.address %></td>
+            <td><%= @ntcmarshal.phone %></td>
+            <td><%= @ntcmarshal.email %></td>
+          <% end %>
+        </tr>
+      </table>
+    </div>
+  </div>
 
   <!-- This is to display what marshals are allocated to what exams -->
-  <p>
-    <strong>Exam scheduled:</strong>
-  </p>
-
-  <p>
-    <% @ntcmarshal.exams.sort { |a, b| b.date <=> a.date }.each do |exam| %>
-      <%= exam.date %> <br />
-    <% end %>
+  <div class="row">
+    <div class="col-md-2">
+      <table class="table table-striped">
+        <tr>
+          <th>Exam scheduled:</th>
+        </tr>    
+        <% @ntcmarshal.exams.sort { |a, b| b.date <=> a.date }.each do |exam| %>
+          <tr>
+            <td>  
+              <%= exam.date %> <br />
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+    
   </p>
   <!-- End of marshal exam allocation display -->
 
