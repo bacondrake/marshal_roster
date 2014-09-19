@@ -20,7 +20,6 @@ class ExamsController < ApplicationController
 
   def show
     @marshals = Ntcmarshal.all
-    @exam_complete = @exam.date > Date.new
   end
 
   def edit
