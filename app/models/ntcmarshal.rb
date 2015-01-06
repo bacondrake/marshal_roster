@@ -4,10 +4,12 @@ class Ntcmarshal < ActiveRecord::Base
   validates_uniqueness_of :name
 
   # CSV for marshal name and exam count only
-  @marshals.each do |m|
-    File.open('marshals.csv', 'a') do |csv|
-      @row = [m.name, m.exams.count]
-    csv.puts @row.join(',')
+  if @marshals != nil
+    @marshals.each do |m|
+      File.open('marshals.csv', 'a') do |csv|
+        @row = [m.name, m.exams.count]
+      csv.puts @row.join(',')
+      end
     end
   end
 
