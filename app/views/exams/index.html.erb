@@ -12,6 +12,9 @@
           <%= link_to exam.date, exam_path(exam) %>
         </td>
         <td>
+          <!-- Placeholder event name -->
+        </td>
+        <td>
           <% if exam.ntcmarshals.count == 5 || exam.date < Date.today %>
             <i class="fa fa-check"></i>
           <% elsif exam.ntcmarshals.count > 5 %>
