@@ -13,11 +13,18 @@
   position: fixed;
 }
 
-/*.long-field {
+.long-field {
   width: 400px;
 }
 
 .long-area {
   width: 400px;
   height: 100px;
-}*/
+}
+
+.error {
+	background-color: #e74c3c !important;
+	a {
+		color: #fff;
+	}
+}

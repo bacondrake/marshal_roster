@@ -2,23 +2,18 @@
   <br />
   <h3><%= @ntcmarshal.name %></h3>
   <div class="row">
-    <div class="col-md-9">
-      <table class="table table-striped">
-        <tr>
-          <th>Address</th>
-          <th>Phone</th>
-          <th>Email</th>
-        </tr>
-        <tr>
-          <% if ( !@ntcmarshal.address && !@ntcmarshal.phone && !@ntcmarshal.email ) || ( @ntcmarshal.address.blank? && @ntcmarshal.phone.blank? && @ntcmarshal.email.blank? ) %>
-            <td colspan=3>No information provided</td>
-          <% else %>
-            <td><%= @ntcmarshal.address %></td>
-            <td><%= @ntcmarshal.phone %></td>
-            <td><%= @ntcmarshal.email %></td>
-          <% end %>
-        </tr>
-      </table>
+    <div class="col-md-6">
+      <div class="well">
+        <% if ( !@ntcmarshal.address && !@ntcmarshal.phone && !@ntcmarshal.email ) || ( @ntcmarshal.address.blank? && @ntcmarshal.phone.blank? && @ntcmarshal.email.blank? ) %>
+          <p>No information provided</p>
+        <% else %>
+          <dl>
+            <dt>Phone</dt><dd><%= @ntcmarshal.phone %></dd><br />
+            <dt>Email</dt><dd><%= @ntcmarshal.email %></dd><br /> <!-- use JavaScript to make a dynamic mailto:@ntcmarshal.email -->
+            <dt>Address</dt><dd><%= @ntcmarshal.address %></dd>
+          </dl>
+        <% end %>
+      </div>
     </div>
   </div>
 
@@ -27,7 +22,7 @@
     <div class="col-md-2">
       <table class="table table-striped">
         <tr>
-          <th>Exam scheduled:</th>
+          <th>Exams scheduled:</th>
         </tr>    
         <% @ntcmarshal.exams.sort { |a, b| b.date <=> a.date }.each do |exam| %>
           <tr>
