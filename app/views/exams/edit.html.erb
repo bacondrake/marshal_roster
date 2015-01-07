@@ -11,21 +11,30 @@
     </ul>
   </div>
   <% end %>
-  <p class="form-group">
-    <%= f.label :date %><br />
-    <%= f.date_field :date %>
-  </p>
+  
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :date %><br />
+      <%= f.date_field :date %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :name %><br />
+      <%= f.text_area :name, class: "long-field" %>
+    </div>
+  </div>
 
-  <p>
-    <%= hidden_field_tag("exam[ntcmarshal_ids][]", nil) %>
-    <% @ntcmarshals.each do |ntcmarshal| %>
-      <div>
-        <%= check_box_tag "exam[ntcmarshal_ids][]", ntcmarshal.id, @exam.ntcmarshals.include?(ntcmarshal) %>
-        <%= ntcmarshal.name %>
-      </div>
-    <% end %>
-  </p>
-
+  <div class="row">
+    <div class="col-md-6">
+      <%= hidden_field_tag("exam[ntcmarshal_ids][]", nil) %>
+      <% @ntcmarshals.each do |ntcmarshal| %>
+        <div>
+          <%= check_box_tag "exam[ntcmarshal_ids][]", ntcmarshal.id, @exam.ntcmarshals.include?(ntcmarshal) %>
+          <%= ntcmarshal.name %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <br />
   <p>
     <%= f.submit "Submit", class: "btn btn-primary" %>
   </p>

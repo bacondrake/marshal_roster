@@ -13,6 +13,10 @@
     <%= f.label :date %><br />
     <%= f.date_field :date %>
   </p>
+  <p class="form-group">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, class: "long-field" %>
+  </p>
 
   <p>
     <%= f.submit "Submit", class: "btn btn-primary" %>

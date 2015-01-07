@@ -47,6 +47,7 @@ class ExamsController < ApplicationController
     def exam_params
       params.require(:exam).permit(
         :date,
+        :name,
         {:ntcmarshal_ids => []}
       )
     end
