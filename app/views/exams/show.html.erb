@@ -9,6 +9,8 @@
   <p class="label label-danger"><%= pluralize(remaining, "marshal") %> to be scheduled</p>
 <% elsif @exam.ntcmarshals.count == 5 %>
   <p class="label label-success">All marshals scheduled</p>
+<% elsif @exam.ntcmarshals.count > 5 %>
+  <p class="label label-danger">Too many marshals scheduled</p>  
 <% end %>
 
 <% if @exam.ntcmarshals.count > 0 %>

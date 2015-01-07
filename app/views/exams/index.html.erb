@@ -3,8 +3,11 @@
   <% @exams.each do |exam| %>
     <% if exam.date < Date.new %>
       <tr class="disabled" %>
+    <% elsif exam.ntcmarshals.count > 5 && exam.date > Date.today %>
+      <tr class="error">
     <% else %>
       <tr>
+    <% end %>
         <td>
           <%= link_to exam.date, exam_path(exam) %>
         </td>
@@ -12,7 +15,7 @@
           <% if exam.ntcmarshals.count == 5 || exam.date < Date.today %>
             <i class="fa fa-check"></i>
           <% elsif exam.ntcmarshals.count > 5 %>
-            <span class="label label-danger"><%= exam.ntcmarshals.count %></span>
+            <span class="label label-default"><%= exam.ntcmarshals.count %></span>
           <% elsif exam.ntcmarshals.count > 0 %>
             <span class="label label-primary"><%= exam.ntcmarshals.count %></span>
           <% end %>
@@ -20,7 +23,6 @@
         <td><%= link_to 'Edit', edit_exam_path(exam) %></td>
         <td><%= link_to 'Delete', exam_path(exam), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
   <% end %>
 </table>
 <br />

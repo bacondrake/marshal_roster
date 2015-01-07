@@ -1,14 +1,16 @@
 <h1>Newbies</h1>
 <% @marshals.sort { |a, b| a.exams.count <=> b.exams.count }.each do |marshal| %>
-  <% if marshal.exams.count < 4 %>
+  <% if marshal.exams.count < 4 %>    
     <% if marshal.exams.count == 0 %>
-      <span class="label label-default">
+      <p>
+        <span class="label label-default"><%= marshal.exams.count %></span>
+        <%= link_to marshal.name, controller: 'ntcmarshals', action: :show, id: marshal.id %>
+      </p>
     <% else %>
-      <span class="label label-primary">
+      <p>
+        <span class="label label-primary"><%= marshal.exams.count %></span>
+        <%= link_to marshal.name, controller: 'ntcmarshals', action: :show, id: marshal.id %>
       </p>
     <% end %>
-      <%= marshal.exams.count %></span>
-      <%= link_to marshal.name, controller: 'ntcmarshals', action: :show, id: marshal.id %> 
-    </p>
   <% end %>
 <% end %>
