@@ -85,7 +85,7 @@ exams = Exam.create ([
   { date: Date.strptime("2015/09/13", "%Y/%m/%d") },
   { date: Date.strptime("2015/09/23", "%Y/%m/%d") },
   { date: Date.strptime("2015/09/24", "%Y/%m/%d") },
-  { date: Date.strptime("2015/10/09", "%Y/%m/%d") },
+  { date: Date.strptime("2015/10/09", "%Y/%m/%d"), name: "End of semester exams" },
   { date: Date.strptime("2015/10/17", "%Y/%m/%d") },
   { date: Date.strptime("2015/10/22", "%Y/%m/%d") },
   { date: Date.strptime("2015/10/23", "%Y/%m/%d") },
@@ -94,10 +94,10 @@ exams = Exam.create ([
   { date: Date.strptime("2015/11/07", "%Y/%m/%d") },
   { date: Date.strptime("2015/11/12", "%Y/%m/%d") },
   { date: Date.strptime("2015/11/13", "%Y/%m/%d") },
-  { date: Date.strptime("2015/11/14", "%Y/%m/%d") },
+  { date: Date.strptime("2015/11/14", "%Y/%m/%d"), name: "Sally's birthday party, wew!" },
   { date: Date.strptime("2015/11/18", "%Y/%m/%d") },
   { date: Date.strptime("2015/11/19", "%Y/%m/%d") },
   { date: Date.strptime("2015/11/20", "%Y/%m/%d") },
   { date: Date.strptime("2015/11/27", "%Y/%m/%d") },
-  { date: Date.strptime("2015/11/28", "%Y/%m/%d") }
+  { date: Date.strptime("2015/11/28", "%Y/%m/%d"), name: "Example meeting name" }
 ])
