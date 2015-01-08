@@ -13,18 +13,7 @@
   <% end %>
   
   <div class="row">
-    <div class="form-group col-md-4">
-      <%= f.label :date %><br />
-      <%= f.date_field :date %>
-    </div>
-    <div class="form-group col-md-4">
-      <%= f.label :name %><br />
-      <%= f.text_area :name, class: "long-field" %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <%= hidden_field_tag("exam[ntcmarshal_ids][]", nil) %>
       <% @ntcmarshals.each do |ntcmarshal| %>
         <div>
@@ -32,15 +21,28 @@
           <%= ntcmarshal.name %>
         </div>
       <% end %>
+      <br />
+    </div>
+
+    <div class="form-group col-md-4">
+      <p>
+        <%= f.label :date %><br />
+        <%= f.date_field :date %>
+      </p>
+      <p>
+        <%= f.label :name, "Exam name" %><br />
+        <%= f.text_area :name, class: "long-field" %>
+      </p>
+
+      <p>
+        <%= f.submit "Submit", class: "btn btn-success" %> &nbsp;
+        <%= link_to "View all exams", exams_path, class: "btn btn-primary" %>
+      </p>
     </div>
   </div>
-  <br />
-  <p>
-    <%= f.submit "Submit", class: "btn btn-primary" %>
-  </p>
 
 <% end %>
 
-<% link_to 'Back', exams_path %>
+
 
 

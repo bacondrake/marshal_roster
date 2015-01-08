@@ -27,8 +27,8 @@
           </span>
         <% end %>
       </td>
-      <td><%= link_to 'Edit', edit_ntcmarshal_path(marshal) %></td>
-      <td><%= link_to 'Delete', ntcmarshal_path(marshal), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to '', edit_ntcmarshal_path(marshal), class: "fa fa-pencil-square-o" %></td>
+      <td><%= link_to '', ntcmarshal_path(marshal), class: "fa fa-trash-o", method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>

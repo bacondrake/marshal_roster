@@ -1,5 +1,10 @@
 <h1>Exams <%= link_to 'New exam', new_exam_path, class: "btn btn-primary" %> </h1>
 <table class="table table-striped">
+  <th>Exam date</th>
+  <th>Exam name</th>
+  <th>Marshals rostered</th>
+  <th></th>
+  <th></th>
   <% @exams.each do |exam| %>
     <% if exam.date < Date.new %>
       <tr class="disabled" %>
@@ -11,7 +16,7 @@
         <td>
           <%= link_to exam.date, exam_path(exam) %>
         </td>
-        <td>
+        <td style="max-width:200px;">
           <%= exam.name %>
         </td>
         <td>
@@ -23,8 +28,8 @@
             <span class="label label-primary"><%= exam.ntcmarshals.count %></span>
           <% end %>
         </td>
-        <td><%= link_to 'Edit', edit_exam_path(exam) %></td>
-        <td><%= link_to 'Delete', exam_path(exam), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', edit_exam_path(exam), class: "fa fa-pencil-square-o" %></td>
+        <td><%= link_to '', exam_path(exam), class: "fa fa-trash-o", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
 </table>

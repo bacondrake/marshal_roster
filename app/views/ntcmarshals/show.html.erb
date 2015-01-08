@@ -19,7 +19,7 @@
 
   <!-- This is to display what marshals are allocated to what exams -->
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-6">
       <table class="table table-striped">
         <tr>
           <th>Exams scheduled:</th>
@@ -28,6 +28,7 @@
           <tr>
             <td>  
               <%= exam.date %> <br />
+              <%= exam.name %> <br />
             </td>
           </tr>
         <% end %>
@@ -38,5 +39,5 @@
   </p>
   <!-- End of marshal exam allocation display -->
 
-  <%= link_to 'Edit', edit_ntcmarshal_path %> | <%= link_to 'Back', ntcmarshals_path %>
+  <%= link_to 'Edit', edit_ntcmarshal_path, class: 'btn btn-success' %> &nbsp; <%= link_to 'View all marshals', ntcmarshals_path, class: 'btn btn-primary' %>
 </div>

@@ -15,11 +15,12 @@
   </p>
   <p class="form-group">
     <%= f.label :name %><br />
-    <%= f.text_field :name, class: "long-field" %>
+    <%= f.text_area :name, class: "long-field" %>
   </p>
 
   <p>
-    <%= f.submit "Submit", class: "btn btn-primary" %>
+    <%= f.submit "Submit", class: "btn btn-success" %> &nbsp;
+    <%= link_to 'Back', exams_path, class: 'btn btn-primary' %>
   </p>
 
 <% end %>

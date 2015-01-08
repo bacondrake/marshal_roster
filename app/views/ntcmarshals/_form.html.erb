@@ -11,25 +11,25 @@
   <% end %>
   <p class="form-group">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'long-field' %>
   </p>
 
   <p class="form-group">
     <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone, class: 'long-field' %>
   </p>
 
   <p class="form-group">
     <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: 'long-field' %>
   </p>
 
   <p class="form-group">
     <%= f.label :address %><br />
-    <%= f.text_field :address %>
+    <%= f.text_area :address, class: 'long-area' %>
   </p>  
 
   <p>
-    <%= f.submit "Submit", class: "btn btn-primary" %>
+    <%= f.submit "Submit", class: "btn btn-success" %> &nbsp; <%= link_to 'Back', ntcmarshals_path, class: 'btn btn-primary' %>
   </p>
 <% end %>
