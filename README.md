@@ -7,3 +7,4 @@ A basic rostering system to keep track of who has marshalled at what exam, who i
 * Some sort of security would be good => Setup login systems complete with Mailers for lost passwords, etc.
 * along the vein of Mailers: consider sending a form 'invitation' email through the click of a button. Pre-rostering would be ideal
 * possibly a 'marshals required?' option for exams, to include other meetings that don't need marshals (will eliminate the 'need more marshals' label for exams with marshals < 5)
+* make it look good for little screens
