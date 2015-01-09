@@ -9,7 +9,7 @@ class NtcmarshalsController < ApplicationController
   def create
     @ntcmarshal = Ntcmarshal.new(ntcmarshal_params)
     if @ntcmarshal.save
-      redirect_to ntcmarshals_path
+      redirect_to ntcmarshals_path, notice: "New session successfully created"
     else
       render 'new'
     end
@@ -29,7 +29,7 @@ class NtcmarshalsController < ApplicationController
     params[:ntcmarshal][:exam_ids] ||= []
 
     if @ntcmarshal.update_attributes(ntcmarshal_params)
-      redirect_to ntcmarshals_path
+      redirect_to ntcmarshals_path, notice: "Session has been updated"
     else
       render 'edit'
     end
@@ -38,7 +38,7 @@ class NtcmarshalsController < ApplicationController
   def destroy
     @ntcmarshal.destroy
 
-    redirect_to ntcmarshals_path
+    redirect_to ntcmarshals_path, notice: "Session has been removed"
   end
 
   private

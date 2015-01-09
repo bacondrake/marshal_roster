@@ -1,4 +1,4 @@
-<h1>Newbies</h1>
+<h1>Newcomers</h1>
 <% @marshals.sort { |a, b| a.exams.count <=> b.exams.count }.each do |marshal| %>
   <% if marshal.exams.count < 4 %>    
     <% if marshal.exams.count == 0 %>
@@ -14,3 +14,4 @@
     <% end %>
   <% end %>
 <% end %>
+<br />

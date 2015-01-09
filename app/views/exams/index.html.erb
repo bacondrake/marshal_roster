@@ -21,7 +21,7 @@
         </td>
         <td>
           <% if exam.ntcmarshals.count == 5 || exam.date < Date.today %>
-            <i class="fa fa-check"></i>
+            <span class="label label-success"><%= exam.ntcmarshals.count %></span>
           <% elsif exam.ntcmarshals.count > 5 %>
             <span class="label label-default"><%= exam.ntcmarshals.count %></span>
           <% elsif exam.ntcmarshals.count > 0 %>

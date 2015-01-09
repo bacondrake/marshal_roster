@@ -8,7 +8,7 @@ class ExamsController < ApplicationController
   def create
     @exam = Exam.new(exam_params)
     if @exam.save
-      redirect_to exams_path
+      redirect_to exams_path, notice: "New session successfully created"
     else
       render 'new'
     end
@@ -31,7 +31,7 @@ class ExamsController < ApplicationController
     params[:exam][:ntcmarshal_ids] ||= []
 
     if @exam.update_attributes(exam_params)
-      redirect_to exam_path
+      redirect_to exam_path, notice: "Session has been updated"
     else
       render 'edit'
     end
@@ -40,7 +40,7 @@ class ExamsController < ApplicationController
   def destroy
     @exam.destroy
 
-    redirect_to exams_path
+    redirect_to exams_path, notice: "Session has been removed"
   end
 
   private
