@@ -1,8 +1,7 @@
-$('.close').on('click', function() {
-	console.log("before");
-	(this).closest('div').hide();
-	(this).hide();
-	console.log("after");
+$(document).ready(function() {
+	$('.close').on('click', function(e) {
+		$(this).closest('div').slideUp();
+	});
 });
 
 // <div class="alert alert-info alert-dismissable">
