@@ -1,17 +1,33 @@
 <h1>Newcomers</h1>
 <% @marshals.sort { |a, b| a.exams.count <=> b.exams.count }.each do |marshal| %>
-  <% if marshal.exams.count < 4 %>    
+  <% if marshal.exams.count < 4 %>
     <% if marshal.exams.count == 0 %>
-      <p>
-        <span class="label label-default"><%= marshal.exams.count %></span>
-        <%= link_to marshal.name, controller: 'ntcmarshals', action: :show, id: marshal.id %>
-      </p>
+      <% @brand_new.push(marshal) %>
     <% else %>
-      <p>
-        <span class="label label-primary"><%= marshal.exams.count %></span>
-        <%= link_to marshal.name, controller: 'ntcmarshals', action: :show, id: marshal.id %>
-      </p>
+      <% @new_marshal.push(marshal) %>
     <% end %>
   <% end %>
 <% end %>
+<br />
+
+<div class="row">
+  <div class="col-md-6">
+    <% @brand_new.sort { |marshal1, marshal2| marshal1.name <=> marshal2.name }.each do |marshal| %>
+    <p>
+      <span class="label label-default"><%= marshal.exams.count %></span>
+      <%= link_to marshal.name, controller: 'ntcmarshals', action: :show, id: marshal.id %>
+      <br />
+    </p>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <% @new_marshal.each do |marshal| %>
+      <p>
+        <span class="label label-primary"><%= marshal.exams.count %></span>
+        <%= link_to marshal.name, controller: 'ntcmarshals', action: :show, id: marshal.id %>
+        <br />
+      </p>
+    <% end %>
+  </div>
+</div>
 <br />

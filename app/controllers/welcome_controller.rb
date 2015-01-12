@@ -8,6 +8,8 @@ class WelcomeController < ApplicationController
   end
 
   def newbies
+    @brand_new = []
+    @new_marshal = []
   end
 
   def veterans
