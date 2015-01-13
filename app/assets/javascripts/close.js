@@ -3,7 +3,3 @@ $(document).ready(function() {
 		$(this).closest('div').slideUp();
 	});
 });
-
-// <div class="alert alert-info alert-dismissable">
-// 	<span type="button" class="close" data-dismiss="alert">x</span>
-// </div>

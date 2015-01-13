@@ -9,7 +9,7 @@
         <% else %>
           <dl>
             <dt>Phone</dt><dd><%= @ntcmarshal.phone %></dd><br />
-            <dt>Email</dt><dd><%= @ntcmarshal.email %></dd><br /> <!-- use JavaScript to make a dynamic mailto:@ntcmarshal.email -->
+            <dt>Email</dt><dd><a class="mail"><%= @ntcmarshal.email %></a></dd><br /> <!-- use JavaScript to make a dynamic mailto:@ntcmarshal.email -->
             <dt>Address</dt><dd><%= @ntcmarshal.address %></dd>
           </dl>
         <% end %>
@@ -23,10 +23,10 @@
       <table class="table table-striped">
         <tr>
           <th>Exams scheduled:</th>
-        </tr>    
+        </tr>
         <% @ntcmarshal.exams.sort { |a, b| b.date <=> a.date }.each do |exam| %>
           <tr>
-            <td>  
+            <td>
               <%= exam.date %> <br />
               <%= exam.name %> <br />
             </td>
@@ -35,7 +35,7 @@
       </table>
     </div>
   </div>
-    
+
   </p>
   <!-- End of marshal exam allocation display -->
 
