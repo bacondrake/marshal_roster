@@ -1,4 +1,3 @@
-<br />
 <h3>
   <%= @exam.date.strftime("%B %d, %Y") %>
 </h3>
@@ -6,16 +5,19 @@
 <h4 class="lead">
   <%= @exam.name %>
 </h4>
-
-<% if @exam.date < DateTime.now %>
-  <p class="label label-success">Exam is complete</p>
-<% elsif @exam.ntcmarshals.count < 5 %>
-  <% remaining = (5 - @exam.ntcmarshals.count) %>
-  <p class="label label-danger"><%= pluralize(remaining, "marshal") %> to be scheduled</p>
-<% elsif @exam.ntcmarshals.count == 5 %>
-  <p class="label label-success">All marshals scheduled</p>
-<% elsif @exam.ntcmarshals.count > 5 %>
-  <p class="label label-danger">Too many marshals scheduled</p>  
+<% if @exam.ntcmarshals.count == 0 %>
+  <p>No marshals scheduled yet</p>
+<% else %>
+  <% if @exam.date < DateTime.now %>
+    <p class="label label-success">Exam is complete</p>
+  <% elsif @exam.ntcmarshals.count < 5 %>
+    <% remaining = (5 - @exam.ntcmarshals.count) %>
+    <p class="label label-danger"><%= pluralize(remaining, "marshal") %> to be scheduled</p>
+  <% elsif @exam.ntcmarshals.count == 5 %>
+    <p class="label label-success">All marshals scheduled</p>
+  <% elsif @exam.ntcmarshals.count > 5 %>
+    <p class="label label-danger">Too many marshals scheduled</p>
+  <% end %>
 <% end %>
 
 <% if @exam.ntcmarshals.count > 0 %>
@@ -42,7 +44,7 @@
       </table>
     </div>
   </div>
-  <%= link_to 'Edit', edit_exam_path, class: 'btn btn-success' %>&nbsp; <%= link_to 'View all exams', exams_path, class: 'btn btn-primary' %>  
+  <%= link_to 'Edit', edit_exam_path, class: 'btn btn-success' %>&nbsp; <%= link_to 'View all exams', exams_path, class: 'btn btn-primary' %>
 <% else %>
   <p> </p>
   <p>
@@ -50,4 +52,3 @@
     <%= link_to 'Back', exams_path, class: 'btn btn-primary' %>
   </p>
 <% end %>
-
