@@ -11,23 +11,23 @@
   <% end %>
   <p class="form-group">
     <%= f.label :name %><br />
-    <%= f.text_field :name, class: 'long-field' %>
+    <%= f.text_field :name, class: 'long-field', placeholder: "Jane Citizen" %>
   </p>
 
   <p class="form-group">
     <%= f.label :phone %><br />
-    <%= f.text_field :phone, class: 'long-field' %>
+    <%= f.text_field :phone, class: 'long-field', placeholder: "0400198764" %>
   </p>
 
   <p class="form-group">
     <%= f.label :email %><br />
-    <%= f.text_field :email, class: 'long-field' %>
+    <%= f.text_field :email, class: 'long-field', placeholder: "jane.citizen@student.edu.au" %>
   </p>
 
   <p class="form-group">
     <%= f.label :address %><br />
-    <%= f.text_area :address, class: 'long-area' %>
-  </p>  
+    <%= f.text_area :address, class: 'long-area', placeholder: "300 LaTrobe street Melbourne VIC 3000" %>
+  </p>
 
   <p>
     <%= f.submit "Submit", class: "btn btn-success" %> &nbsp; <%= link_to 'Back', ntcmarshals_path, class: 'btn btn-primary' %>

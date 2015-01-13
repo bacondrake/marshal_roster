@@ -11,7 +11,7 @@
     </ul>
   </div>
   <% end %>
-  
+
   <div class="row">
     <div class="col-md-4">
       <%= hidden_field_tag("exam[ntcmarshal_ids][]", nil) %>
@@ -31,7 +31,7 @@
       </p>
       <p>
         <%= f.label :name, "Exam name" %><br />
-        <%= f.text_area :name, class: "long-field" %>
+        <%= f.text_area :name, class: "long-field", placeholder: "Clinical exam" %>
       </p>
 
       <p>
@@ -42,7 +42,3 @@
   </div>
 
 <% end %>
-
-
-
-
