@@ -4,6 +4,7 @@ gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
+gem 'jquery-turbolinks' # Required for mailto: JavaScript on the marshals#show page to work correctly without reloading the page
 gem 'kaminari'
 gem 'rails', '4.1.0'
 gem 'sass-rails', '~> 4.0.3'
