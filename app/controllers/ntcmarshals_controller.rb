@@ -29,7 +29,7 @@ class NtcmarshalsController < ApplicationController
     params[:ntcmarshal][:exam_ids] ||= []
 
     if @ntcmarshal.update_attributes(ntcmarshal_params)
-      redirect_to ntcmarshals_path, notice: "Marshal has been updated"
+      redirect_to ntcmarshal_path(@ntcmarshal), notice: "Marshal has been updated"
     else
       render 'edit'
     end
