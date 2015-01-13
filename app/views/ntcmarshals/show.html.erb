@@ -8,9 +8,17 @@
           <p>No information provided</p>
         <% else %>
           <dl>
-            <dt>Phone</dt><dd><%= @ntcmarshal.phone %></dd><br />
-            <dt>Email</dt><dd><a class="mail"><%= @ntcmarshal.email %></a></dd><br /> <!-- use JavaScript to make a dynamic mailto:@ntcmarshal.email -->
-            <dt>Address</dt><dd><%= @ntcmarshal.address %></dd>
+            <% if @ntcmarshal.phone.blank? == false %>
+              <dt>Phone</dt><dd><%= @ntcmarshal.phone if !nil %></dd><br />
+            <% end %>
+
+            <% if @ntcmarshal.email.blank? == false %>
+              <dt>Email</dt><dd><a class="mail"><%= @ntcmarshal.email if !nil %></a></dd><br /> <!-- use JavaScript to make a dynamic mailto:@ntcmarshal.email -->
+            <% end %>
+
+            <% if @ntcmarshal.address.blank? == false %>
+              <dt>Address</dt><dd><%= @ntcmarshal.address %></dd>
+            <% end %>
           </dl>
         <% end %>
       </div>
