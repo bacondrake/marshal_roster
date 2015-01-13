@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-6">
       <div class="well">
-        <% if ( !@ntcmarshal.address && !@ntcmarshal.phone && !@ntcmarshal.email ) || ( @ntcmarshal.address.blank? && @ntcmarshal.phone.blank? && @ntcmarshal.email.blank? ) %>
+        <% if ( @ntcmarshal.address.blank? && @ntcmarshal.phone.blank? && @ntcmarshal.email.blank? ) %>
           <p>No information provided</p>
         <% else %>
           <dl>
@@ -13,7 +13,7 @@
             <% end %>
 
             <% if @ntcmarshal.email.blank? == false %>
-              <dt>Email</dt><dd><a class="mail"><%= @ntcmarshal.email if !nil %></a></dd><br /> <!-- use JavaScript to make a dynamic mailto:@ntcmarshal.email -->
+              <dt>Email</dt><dd><a class="mail"><%= @ntcmarshal.email if !nil %></a></dd><br />
             <% end %>
 
             <% if @ntcmarshal.address.blank? == false %>
@@ -28,19 +28,21 @@
   <!-- This is to display what marshals are allocated to what exams -->
   <div class="row">
     <div class="col-md-6">
-      <table class="table table-striped">
-        <tr>
-          <th>Exams scheduled:</th>
-        </tr>
-        <% @ntcmarshal.exams.sort { |a, b| b.date <=> a.date }.each do |exam| %>
+      <% if @ntcmarshal.exams.count > 0 %>
+        <table class="table table-striped">
           <tr>
-            <td>
-              <%= exam.date %> <br />
-              <%= exam.name %> <br />
-            </td>
+            <th>Exams scheduled:</th>
           </tr>
-        <% end %>
-      </table>
+          <% @ntcmarshal.exams.sort { |a, b| b.date <=> a.date }.each do |exam| %>
+            <tr>
+              <td>
+                <%= exam.date %> <br />
+                <%= exam.name %> <br />
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      <% end %>
     </div>
   </div>
 
