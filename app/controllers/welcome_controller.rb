@@ -10,6 +10,18 @@ class WelcomeController < ApplicationController
   def newbies
     @brand_new = []
     @new_marshal = []
+
+    # Sort relevant marshals into above arrays in order to
+    # separate those who have marshalled 0 exams from the rest
+    @marshals.each do |marshal|
+      if marshal.exams.count < 4
+        if marshal.exams.count == 0
+          @brand_new.push(marshal)
+        else
+          @new_marshal.push(marshal)
+        end
+      end
+    end
   end
 
   def veterans
