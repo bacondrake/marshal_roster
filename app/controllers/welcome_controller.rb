@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   before_action :set_marshals, only: [:five_timers, :veterans, :newbies]
+  before_action :logged_in_user, except: [:index]
 
   def index
   end
@@ -31,5 +32,12 @@ class WelcomeController < ApplicationController
     def set_marshals
       @exams = Exam.all
       @marshals = Ntcmarshal.all
+    end
+
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "You must log in to view this page"
+        redirect_to login_url
+      end
     end
 end

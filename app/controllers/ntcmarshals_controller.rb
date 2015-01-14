@@ -1,6 +1,7 @@
 class NtcmarshalsController < ApplicationController
   before_action :set_marshal, only: [:show, :edit, :update, :destroy]
   before_action :set_exams,   only: [:show, :edit]
+  before_action :logged_in_user
 
   def new
     @ntcmarshal = Ntcmarshal.new
@@ -58,5 +59,12 @@ class NtcmarshalsController < ApplicationController
 
     def set_exams
       @exams = Exam.order("date desc")
+    end
+
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "You must log in to view this page"
+        redirect_to login_url
+      end
     end
 end

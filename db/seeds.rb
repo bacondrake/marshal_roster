@@ -6,6 +6,26 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Ntcmarshal.create!(name:  "John Smith",
+#                    address: "99 Circle Lane Ballaroo VIC 3000",
+#                    email: "john.smith@student.edu.au",
+#                    phone: "0411987654",
+#                    admin: true                  
+#                    )
+#
+# 99.times do |n|
+#   name  = Faker::Name.name
+#   email = "example-#{n+1}@student.edu.au"
+#   address = ### FILL THIS OUT
+#   phone = ###   FILL THIS OUT
+#
+#   Ntcmarshal.create!(name:  name,
+#   email:    email,
+#   address:  password,
+#   phone:    phone)
+# end
+
+
 ntcmarshals = Ntcmarshal.create([
   { name: "John Smith" },
   { name: "Jane Smath" },

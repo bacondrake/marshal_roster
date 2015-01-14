@@ -1,7 +1,9 @@
 <%= form_for @exam do |f| %>
   <% if @exam.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@exam.errors.count, "error") %> prohibited this exam from being saved:</h2>
+    <div class="alert alert-danger long-field">
+      <%= pluralize(@exam.errors.count, "error") %> prohibited this exam from being saved:
+    </div>
     <ul>
     <% @exam.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>

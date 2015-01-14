@@ -1,5 +1,6 @@
 class ExamsController < ApplicationController
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user
 
   def new
     @exam = Exam.new
@@ -54,5 +55,12 @@ class ExamsController < ApplicationController
 
     def set_exam
       @exam = Exam.find(params[:id])
+    end
+
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "You must log in to view this page"
+        redirect_to login_url
+      end
     end
 end

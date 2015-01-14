@@ -1,0 +1,28 @@
+<h1 style="text-align:center">Log in</h1>
+
+<div class="col-md-offset-3">
+  <%= form_for(:session, url: login_path) do |f| %>
+
+  <p>
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control long-field' %>
+  </p>
+
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control long-field' %>
+  </p>
+
+  <p>
+    <%= f.label :remember_me, class: "inline" do %>
+      <%= f.check_box :remember_me %>
+      <span>&nbsp; Remember me on this computer</span>
+    <% end %>
+  </p>
+
+  <%= f.submit "Log in", class: "btn btn-primary long-field" %>
+  <% end %>
+  <h5>
+    New user? <%= link_to "Sign up now!", signup_path %>
+  </h5>
+</div>

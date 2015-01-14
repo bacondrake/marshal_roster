@@ -1,7 +1,8 @@
 <%= form_for @ntcmarshal do |f| %>
   <% if @ntcmarshal.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@ntcmarshal.errors.count, "error") %> prohibited this marshal from being saved:</h2>
+    <div class="alert alert-danger">
+      <%= pluralize(@ntcmarshal.errors.count, "error") %> prohibited this marshal from being saved:
     <ul>
     <% @ntcmarshal.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -9,6 +10,7 @@
     </ul>
   </div>
   <% end %>
+
   <p class="form-group">
     <%= f.label :name %><br />
     <%= f.text_field :name, class: 'long-field', placeholder: "Jane Citizen" %>
