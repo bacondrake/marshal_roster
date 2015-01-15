@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115044033) do
+ActiveRecord::Schema.define(version: 20150115211710) do
 
   create_table "exams", force: true do |t|
     t.date     "date"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150115044033) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.string   "phone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
