@@ -10,6 +10,7 @@
   <br/>
   <% if logged_in? %>
     <ul class="nav nav-stacked">
+      <li><%= link_to 'Staff members', users_path %></li>
       <li><%= link_to 'Profile', current_user %></li>
       <li><%= link_to 'Settings', edit_user_path(current_user) %></li>
       <li><%= link_to 'Log out', logout_path, method: :delete %></li>
