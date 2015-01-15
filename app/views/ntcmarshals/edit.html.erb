@@ -25,32 +25,31 @@
       </p>
     </div>
 
-      <div class="col-md-5">
-        <p class="form-group">
-          <%= f.label :name %><br />
-          <%= f.text_field :name, class: "long-field", placeholder: "John Smith" %>
-        </p>
+    <div class="col-md-5">
+      <p class="form-group">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, class: "long-field", placeholder: "John Smith" %>
+      </p>
 
-        <p class="form-group">
-          <%= f.label :phone %><br />
-          <%= f.text_field :phone, class: "long-field", placeholder: "0400123456" %>
-        </p>
+      <p class="form-group">
+        <%= f.label :phone %><br />
+        <%= f.text_field :phone, class: "long-field", placeholder: "0400123456" %>
+      </p>
 
-        <p class="form-group">
-          <%= f.label :email %><br />
-          <%= f.text_field :email, class: "long-field", placeholder: "john.smith@student.edu.au" %>
-        </p>
+      <p class="form-group">
+        <%= f.label :email %><br />
+        <%= f.text_field :email, class: "long-field", placeholder: "john.smith@student.edu.au" %>
+      </p>
 
-        <p class="form-group">
-          <%= f.label :address %><br />
-          <%= f.text_area :address, class: "long-area", placeholder: "300 LaTrobe street Melbourne VIC 3000" %>
-        </p>
+      <p class="form-group">
+        <%= f.label :address %><br />
+        <%= f.text_area :address, class: "long-area", placeholder: "300 LaTrobe street Melbourne VIC 3000" %>
+      </p>
 
-        <p>
-          <%= f.submit "Update", class: "btn btn-success" %> &nbsp;
-          <%= link_to 'View all marshals', ntcmarshals_path, class: 'btn btn-primary' %>
-        </p>
-      </div>
+      <p>
+        <%= f.submit "Update", class: "btn btn-success" %> &nbsp;
+        <%= link_to 'View all marshals', ntcmarshals_path, class: 'btn btn-primary' %>
+      </p>
     </div>
   </div>
 
