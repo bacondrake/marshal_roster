@@ -7,7 +7,7 @@
     <li><%= link_to "Newcomers", newbies_path %> </li>
     <li><%= link_to "Lead marshals", veterans_path %> </li>
   </ul>
-  <hr style="border-color:#000" />
+  <br/>
   <% if logged_in? %>
     <ul class="nav nav-stacked">
       <li><%= link_to 'Profile', current_user %></li>
