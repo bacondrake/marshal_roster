@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114232238) do
+ActiveRecord::Schema.define(version: 20150115044033) do
 
   create_table "exams", force: true do |t|
     t.date     "date"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20150114232238) do
     t.string   "activation_digest"
     t.boolean  "activated",         default: false
     t.datetime "activated_at"
+    t.string   "reset_digest"
+    t.datetime "reset_sent_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
