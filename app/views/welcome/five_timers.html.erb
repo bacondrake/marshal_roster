@@ -1,7 +1,11 @@
 <h1>Five Timers</h1>
-<% @marshals.sort { |a, b| b.exams.count <=> a.exams.count }.each do |marshal| %>
-  <% if marshal.exams.count > 4 %>
+
+<% if @marshal_count.empty? %>
+	<p>
+		No marshals have attended 5 or more exams
   <p>
+ <% else %>
+ 	<% @marshal_count.each do |marshal| %>
     <span class="label label-success"><%= marshal.exams.count %></span> 
     <%= link_to marshal.name, controller: 'ntcmarshals', action: :show, id: marshal.id %> 
   </p>

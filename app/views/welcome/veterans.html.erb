@@ -1,12 +1,17 @@
 <h1>Lead marshal candidates</h1>
-<% @marshals.sort { |a, b| b.exams.count <=> a.exams.count }.each do |marshal| %>
-  <% if marshal.exams.count > 3 %>
+
+<% if @marshal_count.empty? %>
+  <p>
+    No marshals are currently eligible for lead marshal status
+  <p>
+<% else %>
+  <% @marshal_count.each do |marshal| %>
     <% if marshal.exams.count > 4 %>
       <span class="label label-success">
     <% else %>
       <span class="label label-primary">
     <% end %>
-      <%= marshal.exams.count %></span> 
+      <%= marshal.exams.count %></span>
       <%= link_to marshal.name, controller: 'ntcmarshals', action: :show, id: marshal.id %> 
     </p>
   <% end %>

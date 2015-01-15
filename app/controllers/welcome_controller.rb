@@ -6,6 +6,12 @@ class WelcomeController < ApplicationController
   end
 
   def five_timers
+    @marshal_count = []
+    @marshals.sort { |a, b| b.exams.count <=> a.exams.count }.each do |marshal|
+      if marshal.exams.count > 4
+        @marshal_count.push(marshal)
+      end
+    end
   end
 
   def newbies
@@ -26,6 +32,12 @@ class WelcomeController < ApplicationController
   end
 
   def veterans
+    @marshal_count = []
+    @marshals.sort { |a, b| b.exams.count <=> a.exams.count }.each do |marshal|
+      if marshal.exams.count > 3
+        @marshal_count.push(marshal)
+      end
+    end
   end
 
   private
