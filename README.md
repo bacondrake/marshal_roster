@@ -7,4 +7,4 @@ A basic rostering system to keep track of who has marshalled at what exam, who i
 * make it look good for little screens
 * add icons to navbar
 
-* Fill users in seeds
+* When a non-admin user tries to get to /signup-admin they are logged out. Should just be redirected but stay logged in.
