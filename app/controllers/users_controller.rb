@@ -72,7 +72,7 @@ class UsersController < ApplicationController
       def admin_user
         unless current_user.admin?
           redirect_to(root_url)
-          flash.now[:danger] = "You do not have permission to view that page"
+          flash[:danger] = "You do not have permission to view that page"
         end
       end
 end
