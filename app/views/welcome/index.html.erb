@@ -4,6 +4,9 @@
 
     <p>Access examination and marshal records using the menu on the left.</p>
     <%= link_to "Logout", logout_path, method: :delete, class: "btn btn-lg btn-primary" %>
+    <% if current_user.admin? %>
+      &nbsp;<%= link_to "Sign up new user", signup_path, class: "btn btn-lg btn-success" %>
+    <% end %>
   </div>
 <% else %>
   <div class="jumbotron">

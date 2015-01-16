@@ -28,6 +28,11 @@
       <%= f.label :password_confirmation, "Confirmation" %><br />
       <%= f.password_field :password_confirmation, class: "long-field form-control" %>
     </p>
+
+    <p>
+      <%= f.check_box :admin, method: :toggle %>
+      &nbsp;<%= f.label :admin, "Administrator?" %>
+    </p>
     <br />
 
     <%= f.submit "Create my account", class: "btn btn-primary long-field" %>
