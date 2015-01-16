@@ -1,16 +1,20 @@
-<h1>Welcome</h1>
+<% if logged_in? %>
+  <div class="jumbotron">
+    <h1>Welcome</h1>
 
-<ul>
-  <li>Counting the number of exams each marshal has attended</li>
-  <li>Keeping track of those who have marshalled five or more times, as well as those who have not had many opportunities</li>
-  <li>Reference of who is to be expected on the day of the exam</li>
-  <li>Counting the number of marshals required for any given exam</li>
-</ul>
+    <p>Access examination and marshal records using the menu on the left.</p>
+    <%= link_to "Logout", logout_path, class: "btn btn-lg btn-primary" %>
+  </div>
+<% else %>
+  <div class="jumbotron">
+    <h1>Welcome</h1>
 
-<p>Login below. If you're not registered, please let an admin know and it will be set up</p>
+    <p>Login below. If you're not registered, please ask an admin for an account.</p>
 
-<br />
+    <br />
 
-<div>
-  <%= link_to "Login", login_path, class: "btn btn-lg btn-primary" %>
-</div>
+    <div>
+      <%= link_to "Login", login_path, class: "btn btn-lg btn-primary" %>
+    </div>
+  </div>
+<% end %>

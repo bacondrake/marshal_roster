@@ -25,7 +25,7 @@
 #   phone:    phone)
 # end
 users = User.create([
-  { email: "admin@gmail.com", password: "foobar", name: "Admin", phone: "0404192837", activated: true, admin: true },
+  { email: "admin@admin.com", password: "foobar", name: "Admin", phone: "0404192837", activated: true, admin: true },
   { email: "jenny_wenny@friendface.com", password: "theshoes", name: "Jen Barber", phone: "0472995726", activated: true },
   { email: "roy.trenneman@ri.com", password: "westham", name: "Roy Trenneman", phone: "0411927645", activated: true },
   { email: "maurice.moss@ri.com", password: "hotear", name: "Maurice Moss", phone: "0412618922", activated: true },
