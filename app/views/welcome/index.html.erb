@@ -3,7 +3,7 @@
     <h1>Welcome</h1>
 
     <p>Access examination and marshal records using the menu on the left.</p>
-    <%= link_to "Logout", logout_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Logout", logout_path, method: :delete, class: "btn btn-lg btn-primary" %>
   </div>
 <% else %>
   <div class="jumbotron">
