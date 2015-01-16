@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   # Users
-  get 'signup'  => 'users#new'
-  resources :users
+  get 'signup-admin'  => 'users#new'
+  resources :users, except: [:new]
 
   # Sessions
   get    'login'   => 'sessions#new'
