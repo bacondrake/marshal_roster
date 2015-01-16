@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :show, :destroy]
-  before_action :correct_user, only: [:edit, :update, :show]
-  before_action :admin_user, only: [:destroy, :new]
+  before_action :correct_user, only: [:edit]
+  before_action :admin_user, only: [:destroy, :new, :show]
 
   def new
     @user = User.new
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Account has been updated"
-      redirect_to @user
+      redirect_to users_path
     else
       render 'edit'
     end
@@ -43,7 +43,11 @@ class UsersController < ApplicationController
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "Your profile has been deleted"
-    redirect_to signup_admin_path
+    unless logged_in_user
+      redirect_to signup_path
+    else
+      redirect_to users_path
+    end
   end
 
   private

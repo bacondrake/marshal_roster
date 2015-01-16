@@ -1,3 +1,15 @@
 <h1><%= @user.name %></h1>
 <h3><a href="mailto:<%=@user.email%>"><%= @user.email %></a></h3>
 <h3><%= @user.phone %></h3>
+<% if current_user.admin %>
+  <%= form_for(@user) do |f| %>
+
+    <%= f.check_box :admin, method: :toggle %>
+    &nbsp;<%= f.label :admin, "Make admin" %>
+
+    <%= f.submit "Update", class: "btn btn-primary" %>
+
+    <%= link_to "Delete", @user, class: 'btn btn-danger', method: :delete,
+    data: { confirm: "This will permanently remove this user's profile. Are you sure?" } %>
+  <% end %>
+<% end %>
