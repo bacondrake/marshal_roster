@@ -5,6 +5,5 @@ A basic rostering system to keep track of who has marshalled at what exam, who i
 * consider sending a form 'exam marshalling invitation' email through the click of a button. Pre-rostering would be ideal
 * possibly a 'marshals required?' option for exams, to include other meetings that don't need marshals (will eliminate the 'need more marshals' label for exams with marshals < 5)
 * make it look good for little screens
-* add icons to navbar
 
 * When a non-admin user tries to get to /signup they are logged out. Should just be redirected but stay logged in.
