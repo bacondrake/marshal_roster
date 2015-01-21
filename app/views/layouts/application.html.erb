@@ -10,12 +10,10 @@
 
   <body>
     <div class="row">
-      <div class="col-md-3">
-        <%= render 'layouts/header' %>
-      </div>
+      <%= render 'layouts/header' %>
 
       <div class="container">
-      <div class="col-md-9">
+      <div class="col-md-9 col-xs-9">
         <br />
         <% flash.each do |name, msg| %>
           <%= content_tag(:div, class: "alert alert-info") do %>
