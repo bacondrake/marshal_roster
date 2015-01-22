@@ -4,12 +4,15 @@
 <% if current_user.admin %>
   <%= form_for(@user) do |f| %>
 
-    <%= f.check_box :admin, method: :toggle %>
-    &nbsp;<%= f.label :admin, "Make admin" %>
+    <p>
+      <%= f.check_box :admin, method: :toggle %>
+      &nbsp;<%= f.label :admin, "Make admin" %>
+    </p>
 
-    <%= f.submit "Update", class: "btn btn-primary" %>
-
-    <%= link_to "Delete", @user, class: 'btn btn-danger', method: :delete,
-    data: { confirm: "This will permanently remove this user's profile. Are you sure?" } %>
+    <p>
+      <%= f.submit "Update", class: "btn btn-primary" %>&nbsp;
+      <%= link_to "Delete", @user, class: 'btn btn-danger', method: :delete,
+      data: { confirm: "This will permanently remove this user's profile. Are you sure?" } %>
+    </p>
   <% end %>
 <% end %>

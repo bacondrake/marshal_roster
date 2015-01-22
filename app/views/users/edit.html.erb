@@ -32,10 +32,12 @@
     </p>
     <br />
 
-    <%= f.submit "Save changes", class: "btn btn-success" %> &nbsp;
-    <%= link_to "Back", user_path, class: "btn btn-primary" %> &nbsp;
-    <%= link_to "Delete", @user, class: 'btn btn-danger', method: :delete,
-    data: { confirm: "This will permanently remove your profile. Are you sure?" } %>
+    <p>
+      <%= f.submit "Save changes", class: "btn btn-success" %> &nbsp;
+      <%= link_to "Back", user_path, class: "btn btn-primary" %> &nbsp;
+      <%= link_to "Delete", @user, class: 'btn btn-danger', method: :delete,
+      data: { confirm: "This will permanently remove your profile. Are you sure?" } %>
+    </p>
 
   <% end %>
 </div>

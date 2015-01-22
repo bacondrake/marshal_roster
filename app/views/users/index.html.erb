@@ -1,25 +1,29 @@
-<h1>Staff members</h1>
-<table class="table table-striped">
-  <tr>
-    <td>Name</td>
-    <td>Email</td>
-    <td>Phone</td>
-    <td>Admin status</td>
-  </tr>
-  <% @users.each do |user| %>
-    <tr>
-      <% if current_user.admin %>
-        <td><%= link_to user.name, user %></td>
-      <% else %>
-        <td><%= user.name %></td>
+<div class="row">
+  <div class="col-md-offset-0 col-sm-offset-0 col-xs-offset-1">
+    <h1>Staff members</h1>
+    <table class="table table-striped">
+      <tr>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Phone</td>
+        <td>Admin status</td>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+          <% if current_user.admin %>
+            <td><%= link_to user.name, user %></td>
+          <% else %>
+            <td><%= user.name %></td>
+          <% end %>
+          <td><a href="mailto:<%= user.email %>"><%= user.email %></a></td>
+          <td><%= user.phone %></td>
+          <td>
+            <% if user.admin %>
+            Administrator
+            <% end %>
+          </td>
+        </tr>
       <% end %>
-      <td><a href="mailto:<%= user.email %>"><%= user.email %></a></td>
-      <td><%= user.phone %></td>
-      <td>
-        <% if user.admin %>
-        Administrator
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+    </table>
+  </div>
+</div>
