@@ -1,9 +1,7 @@
 #Marshals roster
 
-A basic rostering system to keep track of who has marshalled at what exam, who is rostered on to the next exam and how many exams each marshal has done. Very basic functionality at the moment but a big improvement on the manual system used in Excel and Word.
+I made this to monitor examination marshals (they make sure those taking the exam don't have to worry about getting lost). The exams were so frequent that it got tricky to monitor it all in an Excel spreadsheet so I put this together.
 
-* consider sending a form 'exam marshalling invitation' email through the click of a button. Pre-rostering would be ideal
-* possibly a 'marshals required?' option for exams, to include other meetings that don't need marshals (will eliminate the 'need more marshals' label for exams with marshals < 5)
-* make it look good for little screens
+It's pretty basic stuff but made the work more efficient and way less stressful, so I consider it a definite thumbs up emoji.
 
-* When a non-admin user tries to get to /signup they are logged out. Should just be redirected but stay logged in.
+More functionality could be added to the project, which could make it better, especially a 'tentative' status for those who have been rostered on but have not confirmed attendance for the day. A bulk mail-out email for rostered marshals informing them of their shift would make life very easy.
